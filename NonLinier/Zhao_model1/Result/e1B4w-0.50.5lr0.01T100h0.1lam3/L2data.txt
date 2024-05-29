@@ -1,0 +1,52 @@
+Title:
+e:\Git\DeepUnfolding_Event\NonLinier\Zhao_model1\Result\e1B4w-0.50.5lr0.01T100h0.1lam3\
+
+L0:
+tensor([-2.3118], dtype=torch.float64, grad_fn=<UnbindBackward0>)
+
+L1:
+tensor([-0.7018,  0.0523, -0.3072,  0.0789], dtype=torch.float64,
+       grad_fn=<UnbindBackward0>)
+
+L2:
+tensor([-1.0969,  0.0876, -0.1350,  0.1685], dtype=torch.float64,
+       grad_fn=<UnbindBackward0>)
+tensor([ 0.0876,  1.1117, -0.6375, -0.6615], dtype=torch.float64,
+       grad_fn=<UnbindBackward0>)
+tensor([-0.1350, -0.6375, -0.0246, -0.0035], dtype=torch.float64,
+       grad_fn=<UnbindBackward0>)
+tensor([ 0.1685, -0.6615, -0.0035, -0.0537], dtype=torch.float64,
+       grad_fn=<UnbindBackward0>)
+
+K:
+tensor([-0.1623, -0.5470], dtype=torch.float64, grad_fn=<UnbindBackward0>)
+cost_ev1
+1283.715605719891
+cost2_ev1
+1417.3819282588713
+cnt_ev1
+5.0
+cost_ev2
+1517.1977235292793
+cost2_ev2
+1781.4139763766707
+cnt_ev2
+3.0
+cost_ev3
+1361.2843994707187
+cost2_ev3
+1526.4243429588535
+cnt_ev3
+2.0
+cost_ev4
+1212.2272473006235
+cost2_ev4
+1259.1623617384428
+cnt_ev4
+4.0
+cost_AVE
+1343.6062440051282
+cnt_AVE
+3.5
+
+Time: 827.6159636974335 /s
