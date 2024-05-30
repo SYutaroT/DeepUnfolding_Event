@@ -52,6 +52,39 @@ class DisturbanceDataset(Dataset):  # ミニバッチ学習用の学習データ
         return self.disturbances[idx]
 
 
+class RungeKutta():
+    def __init__(self, device):
+        self.h = parameter.h
+        self.device = device
+        self.N = parameter.N
+
+    def f(self, x, u):  # 4次のルンゲクッタ法による離散化
+        h = self.h
+        Rx = torch.zeros(N, 1, dtype=torch.double).to(self.device)
+        x1 = x[0]
+        x2 = x[1]
+
+        k1_x1 = parameter.x1_dot(x1, x2, u)
+        k1_x2 = parameter.x2_dot(x1, x2, u)
+
+        k2_x1 = parameter.x1_dot(x1, x2 + h / 2, u)
+        k2_x2 = parameter.x2_dot(x1, x2 + h / 2, u)
+
+        k3_x1 = parameter.x1_dot(x1, x2 + h / 2, u)
+        k3_x2 = parameter.x2_dot(x1, x2 + h / 2, u)
+
+        k4_x1 = parameter.x1_dot(x1, x2 + h, u)
+        k4_x2 = parameter.x2_dot(x1, x2 + h, u)
+
+        x1_dot_avg = (k1_x1 + 2 * k2_x1 + 2 * k3_x1 + k4_x1) / 6
+        x2_dot_avg = (k1_x2 + 2 * k2_x2 + 2 * k3_x2 + k4_x2) / 6
+
+        Rx[0] = x1 + h * x1_dot_avg
+        Rx[1] = x2 + h * x2_dot_avg
+
+        return Rx
+
+
 class CSTR(nn.Module):  # 深層展開のメインクラス
     def __init__(self, T, N, epoch, device, path):  # パラメータの定義
         super(CSTR, self).__init__()
@@ -77,10 +110,9 @@ class CSTR(nn.Module):  # 深層展開のメインクラス
         self.minw = parameter.wmin
         self.maxw = parameter.wmax
 # ?----------------------------------------------------------------コスト関数
-        self.Q = torch.tensor([[1, 0], [0, 1]],
-                              dtype=torch.double, device=device)
-        self.Qf = 10*torch.eye(N, dtype=torch.double, device=device)
-        self.R = torch.eye(1, dtype=torch.double, device=device)
+        self.Q = parameter.Q.to(device)
+        self.Qf = parameter.Qf.to(device)
+        self.R = parameter.R.to(device)
         self.lam = 1
 # ?----------------------------------------------------------------その他
         self.batchSize = 2
@@ -165,7 +197,7 @@ class CSTR(nn.Module):  # 深層展開のメインクラス
                 x_hat = delta[:, [i]]*x[:, [i]] + \
                     (1-delta[:, [i]])*x_hat
             u[:, [i]] = self.K@x_hat
-            x[:, [i+1]] = self.f(x[:, [i]], u[:, [i]])+w[:, [i]]
+            x[:, [i+1]] = Rk.f(x[:, [i]], u[:, [i]])+w[:, [i]]
         self.delta = delta
         self.x = x
         return x, delta
@@ -212,15 +244,11 @@ class CSTR(nn.Module):  # 深層展開のメインクラス
                     loss.backward()
                     optimizer.step()
                 # TODO 学習率スケジューラを付けたいなら下のプログラムをコメントアウトから解放
-                # current_lr = optimizer.param_groups[0]['lr']
-                # loss_history.append(loss.item())
-                # lr_history.append(current_lr)
-                # cosine_scheduler.step()
-            # TODO LR Range Testがしたいなら下のプログラムをコメントアウトから解放
-            liner_scheduler.step()
-            current_lr = optimizer.param_groups[0]['lr']
-            loss_history.append(loss.item())
-            lr_history.append(current_lr)
+                current_lr = optimizer.param_groups[0]['lr']
+                loss_history.append(loss.item())
+                lr_history.append(current_lr)
+                cosine_scheduler.step()
+
         # TODO 学習率の推移、評価関数と学習率関係をプロット
         plt.figure(figsize=(10, 6))
         plt.plot(lr_history, loss_history, marker='o', linestyle='-')
@@ -276,6 +304,7 @@ data = imgname+"L2data.txt"
 directory = os.path.dirname(imgname)
 if not os.path.exists(directory):
     os.makedirs(directory)
+Rk = RungeKutta(device)
 cstr = CSTR(T, N, epoch, device, imgname)
 
 

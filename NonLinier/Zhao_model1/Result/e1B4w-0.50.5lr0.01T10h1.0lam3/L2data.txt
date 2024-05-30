@@ -1,0 +1,74 @@
+Title:
+e:\Git\DeepUnfolding_Event\NonLinier\Zhao_model1\Result\e1B4w-0.50.5lr0.01T10h1.0lam3\
+
+L0:
+tensor([[-0.0340]], device='cuda:0', dtype=torch.float64)
+
+L1:
+tensor([-0.0041, -0.0557, -0.0340, -0.0340], device='cuda:0',
+       dtype=torch.float64)
+
+L2:
+tensor([-0.0420,  0.0939, -0.0041, -0.0041], device='cuda:0',
+       dtype=torch.float64)
+tensor([ 0.0939, -0.0292, -0.0557, -0.0557], device='cuda:0',
+       dtype=torch.float64)
+tensor([-0.0041, -0.0557, -0.0340, -0.0340], device='cuda:0',
+       dtype=torch.float64)
+tensor([-0.0041, -0.0557, -0.0340, -0.0340], device='cuda:0',
+       dtype=torch.float64)
+
+K:
+tensor([[-0.1545, -0.1543]], device='cuda:0', dtype=torch.float64)
+cost_ev1
+578.7189012155422
+cnt_ev1
+1.0
+cost_ev_hikaku1
+3990.5544632576793
+cnt_ev_hikaku1
+8.0
+Time_cost1
+3993.5544632576793
+cost_ev2
+759.9888660356338
+cnt_ev2
+2.0
+cost_ev_hikaku2
+1164.0881989235952
+cnt_ev_hikaku2
+7.0
+Time_cost2
+2093.1993683995897
+cost_ev3
+2551.9463560981503
+cnt_ev3
+2.0
+cost_ev_hikaku3
+3005.782081769774
+cnt_ev_hikaku3
+8.0
+Time_cost3
+3008.782081769774
+cost_ev4
+1468.9968642580948
+cnt_ev4
+2.0
+cost_ev_hikaku4
+714.4866039899335
+cnt_ev_hikaku4
+8.0
+Time_cost4
+717.4866039899335
+cost_AVE
+1339.9127469018554
+cnt_AVE
+1.75
+cost_AVE_2
+2218.7278369852456
+cnt_AVE_2
+7.75
+cnt_AVE_Time
+2453.2556293542443
+
+Time: 4.97465968132019 /s

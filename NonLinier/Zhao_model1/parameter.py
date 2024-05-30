@@ -3,7 +3,7 @@ import os
 
 T = 100
 N = 2
-Folder = os.getcwd()
+Folder = os.path.dirname(__file__)
 Dt = "\\Result\\"
 
 
@@ -22,6 +22,10 @@ wmax = 0.5
 wmin = -0.5
 K_s = torch.tensor([[0, -1]], dtype=torch.double)
 evolution = 4
+
+Q = torch.eye(N, dtype=torch.double)
+Qf = 10*torch.eye(N, dtype=torch.double)
+R = torch.eye(1, dtype=torch.double)
 
 
 def x1_dot(x1, x2, u):
