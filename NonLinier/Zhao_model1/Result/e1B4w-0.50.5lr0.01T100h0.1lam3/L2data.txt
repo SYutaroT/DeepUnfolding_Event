@@ -2,73 +2,51 @@ Title:
 e:\Git\DeepUnfolding_Event\NonLinier\Zhao_model1\Result\e1B4w-0.50.5lr0.01T100h0.1lam3\
 
 L0:
-tensor([[-1.4660]], device='cuda:0', dtype=torch.float64)
+tensor([-1.5288], dtype=torch.float64, grad_fn=<UnbindBackward0>)
 
 L1:
-tensor([-0.7372, -0.2832, -0.1712,  0.0645], device='cuda:0',
-       dtype=torch.float64)
+tensor([-0.7994, -0.2716, -0.2284,  0.0192], dtype=torch.float64,
+       grad_fn=<UnbindBackward0>)
 
 L2:
-tensor([-0.6528, -0.1370, -0.0644,  0.1982], device='cuda:0',
-       dtype=torch.float64)
-tensor([-0.1370,  0.1811, -0.3845, -0.3761], device='cuda:0',
-       dtype=torch.float64)
-tensor([-0.0644, -0.3845,  0.0564,  0.0733], device='cuda:0',
-       dtype=torch.float64)
-tensor([ 0.1982, -0.3761,  0.0733,  0.0353], device='cuda:0',
-       dtype=torch.float64)
+tensor([-0.7151, -0.2226, -0.1041,  0.1717], dtype=torch.float64,
+       grad_fn=<UnbindBackward0>)
+tensor([-0.2226,  0.2104, -0.3891, -0.3817], dtype=torch.float64,
+       grad_fn=<UnbindBackward0>)
+tensor([-0.1041, -0.3891,  0.0126,  0.0317], dtype=torch.float64,
+       grad_fn=<UnbindBackward0>)
+tensor([ 1.7167e-01, -3.8172e-01,  3.1735e-02,  2.7932e-04],
+       dtype=torch.float64, grad_fn=<UnbindBackward0>)
 
 K:
-tensor([[-0.3043, -0.5501]], device='cuda:0', dtype=torch.float64)
+tensor([-0.2689, -0.5306], dtype=torch.float64, grad_fn=<UnbindBackward0>)
 cost_ev1
-1304.2713295504768
+1408.3742198634784
+cost2_ev1
+1416.738922039335
 cnt_ev1
 3.0
-cost_ev_hikaku1
-1330.4947303022072
-cnt_ev_hikaku1
-60.0
-Time_cost1
-1432.9941009783176
 cost_ev2
-1602.0173477796702
+1557.5251610579892
+cost2_ev2
+1803.999120165864
 cnt_ev2
-2.0
-cost_ev_hikaku2
-1624.8657917450691
-cnt_ev_hikaku2
-68.0
-Time_cost2
-1706.4409056801446
+3.0
 cost_ev3
-1417.913777275952
+1444.5131367937825
+cost2_ev3
+1527.7016724429136
 cnt_ev3
 3.0
-cost_ev_hikaku3
-1509.4663762118607
-cnt_ev_hikaku3
-75.0
-Time_cost3
-1568.4111129704268
 cost_ev4
-1190.1095278203331
+1335.4442092387012
+cost2_ev4
+1261.019955552066
 cnt_ev4
-3.0
-cost_ev_hikaku4
-1262.5632483348083
-cnt_ev_hikaku4
-69.0
-Time_cost4
-1332.773802421414
+4.0
 cost_AVE
-1378.577995606608
+1436.4641817384877
 cnt_AVE
-2.75
-cost_AVE_2
-1431.8475366484863
-cnt_AVE_2
-68.0
-cnt_AVE_Time
-1510.1549805125758
+3.25
 
-Time: 8.183226346969604 /s
+Time: 1534.4503202438354 /s
