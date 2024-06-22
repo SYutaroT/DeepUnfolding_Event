@@ -259,7 +259,7 @@ class CSTR(nn.Module):  # 深層展開のメインクラス
 
 # ?----------------------------------------------------------------ここからスタート
 seedinit(1)
-device = torch.device("cpu" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 # !----------------------------------------------------------------数値設定(必要に応じて変更)
 T = parameter.T
 N = parameter.N

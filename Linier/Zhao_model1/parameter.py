@@ -28,16 +28,16 @@ Qf = 10*torch.eye(N, dtype=torch.double)
 R = torch.eye(1, dtype=torch.double)
 
 
-def x1_dot(x1, x2, u):
-    return -x1+x2*torch.sin(x2)
-
-
-def x2_dot(x1, x2, u):
-    return u-x1*torch.sin(x2)
-
 # def x1_dot(x1, x2, u):
-#     return 4.0*x2
+#     return -x1+x2*torch.sin(x2)
 
 
 # def x2_dot(x1, x2, u):
-#     return x1+u
+#     return u-x1*torch.sin(x2)
+
+def x1_dot(x1, x2, u):
+    return 4.0*x2
+
+
+def x2_dot(x1, x2, u):
+    return x1+u
